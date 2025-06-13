@@ -19,9 +19,9 @@ public class Address {
     @Id
     private String id;
 
-    private String Street;
+    private String street;
 
-    private String City;
+    private String city;
 
     private String province;
 
@@ -33,7 +33,4 @@ public class Address {
     @ManyToOne
     @JoinColumn(name = "contact_id", referencedColumnName = "id")
     private Contact contact;
-
-    @OneToMany(mappedBy = "contact")
-    private List<Address> addresses;
 }
