@@ -2,6 +2,7 @@ package fitech.restful.service;
 
 import fitech.restful.entitiy.User;
 import fitech.restful.model.RegisterUserRequest;
+import fitech.restful.model.UserResponse;
 import fitech.restful.repository.UserRepository;
 import fitech.restful.security.BCrypt;
 import jakarta.validation.ConstraintViolation;
@@ -40,5 +41,10 @@ public class UserService {
         userRepository.save(user);
     }
 
-
+    public UserResponse get(User user) {
+        return UserResponse.builder()
+                .username(user.getUsername())
+                .name(user.getName())
+                .build();
+    }
 }
